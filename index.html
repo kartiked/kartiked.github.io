@@ -1,2 +1,715 @@
 <h1>Hello there</h1>
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm0zN3UzZjVjOXdocG5xeWExdGp3cndrZTFkOXFqMjJoaGtqbHVrayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nx0rz3jtxtEre/giphy.gif" alt="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik Sharma - MBA Student & Strategic Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .nav-tab {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 0 15px 0 50px;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .achievement-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .achievement-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievement-card li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .achievement-card li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .internship-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 25px 0 25px 50px;
+            border-left: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .timeline-content h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content .duration {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.2);
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs {
+                justify-content: center;
+            }
+            
+            .nav-tab {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Kartik Sharma</h1>
+            <h2>MBA Student | Strategic Leader | Innovation Enthusiast</h2>
+            <p>BITSoM MBA Class of 2026 | Electronics Engineer | National Case Competition Winner</p>
+            
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection('achievements')">Achievements</button>
+                <button class="nav-tab" onclick="showSection('internships')">Internships</button>
+                <button class="nav-tab" onclick="showSection('leadership')">Leadership</button>
+                <button class="nav-tab" onclick="showSection('skills')">Skills</button>
+                <button class="nav-tab" onclick="showSection('projects')">Projects</button>
+                <button class="nav-tab" onclick="showSection('activities')">Activities</button>
+                <button class="nav-tab" onclick="showSection('contact')">Contact</button>
+            </div>
+        </header>
+
+        <div id="achievements" class="content-section active">
+            <h2 class="section-title">Achievements & Awards</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>National Case Competition Victories</h3>
+                    <ul>
+                        <li>1st Place - Tata Consumer Products 'Grow Beyond Better'24 (13,000+ participants)</li>
+                        <li>2nd Place - Colgate-Palmolive 'Transcend'24 (15,000+ participants)</li>
+                        <li>1st Place - Marketizing 2.0 BITSoM Case Competition (700+ participants)</li>
+                        <li>Semi-Finalist - The Ken Case Competition (Swiggy Instamart strategy)</li>
+                    </ul>
+                </div>
+                <div class="achievement-card">
+                    <h3>Academic Excellence</h3>
+                    <ul>
+                        <li>Ranked 4th out of 94 students in Electronics Department</li>
+                        <li>Published research paper on "Image Captioning Using Deep Learning"</li>
+                        <li>Larsen & Toubro Academic Excellence Scholarship recipient</li>
+                        <li>Consistently high academic performance across all levels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="internships" class="content-section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="internship-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Sales & Marketing Intern</h3>
+                        <div class="company">TATA Consumer Products Limited</div>
+                        <div class="duration">April 2025 - June 2025</div>
+                        <p><strong>Key Achievement:</strong> Awarded Pre-Placement Interview (PPI) for exceptional performance</p>
+                        <ul>
+                            <li>Piloted mentorship-driven beat support model with 30-40% improvement in bill cuts</li>
+                            <li>Conducted field immersion across 500+ outlets in Mumbai</li>
+                            <li>Mapped 40,000+ kirana outlets using throughput segmentation</li>
+                            <li>Designed cluster-based sales training program</li>
+                            <li>Proposed Smart Billing Assistant tool powered by AI/ML</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Automation Intern</h3>
+                        <div class="company">Coron Enterprise Ltd.</div>
+                        <div class="duration">December 2023 - April 2024</div>
+                        <ul>
+                            <li>Designed Machinery Quality Assurance System for plastic mould production</li>
+                            <li>Optimized component procurement cost by ~40%</li>
+                            <li>Reduced overall failure rate by ~80%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Marketing & Planning Intern</h3>
+                        <div class="company">Pyyros Global Pvt. Ltd.</div>
+                        <div class="duration">May 2023 - July 2023</div>
+                        <ul>
+                            <li>Conducted market research for spicy-sauces and condiments segment</li>
+                            <li>Developed 10+ prototypes for Peri-Peri bottle range</li>
+                            <li>Interviewed 100+ consumers for product feedback</li>
+                            <li>Assisted in GTM strategy for The Peri-Peri Club café</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Instrumentation & Control Intern</h3>
+                        <div class="company">Larsen & Toubro Sargent & Lundy Pvt. Ltd.</div>
+                        <div class="duration">May 2022 - June 2022</div>
+                        <ul>
+                            <li>Compiled comprehensive analytical reports from vendor documentation</li>
+                            <li>Created user-friendly Excel templates for vendor analysis</li>
+                            <li>Gained expertise in thermal power plant control systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="leadership" class="content-section">
+            <h2 class="section-title">Leadership Positions</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>Training & Placement Coordinator</h3>
+                    <p><strong>BVM Engineering College</strong></p>
+                    <ul>
+                        <li>1 of 18 coordinators managing placement for 700+ students</li>
+                        <li>Supervised 10+ placement drives</li>
+                        <li>Provided recruitment training to 200+ students</li>
+                        <li>Managed industry relations across 8 departments</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Vice Chairperson</h3>
+                    <p><strong>The Space Association Student Branch BVM</strong></p>
+                    <ul>
+                        <li>Conceived Gujarat's First International Space Themed MUN</li>
+                        <li>Managed 120+ delegates from 3 executive committees</li>
+                        <li>Conducted 10+ hands-on workshops with space experts</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Cultural Secretary</h3>
+                    <p><strong>BVM Central Committee</strong></p>
+                    <ul>
+                        <li>Led team of 70+ students for annual techno-cultural fest</li>
+                        <li>Managed event with 3500+ student footfall</li>
+                        <li>Organized 15+ expert talks with ISRO scientists</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Film Club Lead</h3>
+                    <p><strong>BVM Cultural Team</strong></p>
+                    <ul>
+                        <li>Facilitated 15+ live film screenings</li>
+                        <li>Moderated post-film discussions</li>
+                        <li>Average participation of 40+ students per session</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="skills" class="content-section">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Business Strategy</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">Case Analysis</span>
+                        <span class="skill-tag">Strategic Planning</span>
+                        <span class="skill-tag">Go-to-Market</span>
+                        <span class="skill-tag">Business Development</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Sales & Marketing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Field Sales</span>
+                        <span class="skill-tag">Channel Management</span>
+                        <span class="skill-tag">Consumer Insights</span>
+                        <span class="skill-tag">Brand Management</span>
+                        <span class="skill-tag">Digital Marketing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Electronics Engineering</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">Quality Assurance</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Management</span>
+                        <span class="skill-tag">Event Planning</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Mentoring</span>
+                        <span class="skill-tag">Cross-functional Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="content-section">
+            <h2 class="section-title">Academic Projects</h2>
+            <div class="project-card">
+                <h3>Camera for the Blind</h3>
+                <p>Developed an innovative prototype camera system that converts captured images into speech output, enabling visually impaired individuals to better understand and navigate their surroundings. This project demonstrates the application of deep learning and assistive technology principles.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Home Automation System</h3>
+                <p>Designed and implemented a comprehensive home automation solution featuring keypad-enabled door locking mechanisms, gas leak detection systems, and fire detection capabilities. The project showcases expertise in IoT, sensor integration, and safety systems.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Image Captioning Using Deep Learning</h3>
+                <p>Published research paper in the Indian Journal of Natural Sciences exploring advanced deep learning techniques for automatic image captioning. This work contributes to the field of computer vision and natural language processing.</p>
+            </div>
+        </div>
+
+        <div id="activities" class="content-section">
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>Musical Achievements</h3>
+                    <ul>
+                        <li>State level runners up in Western Group Song (19 colleges)</li>
+                        <li>State level second runners up in Folk Orchestra (19 colleges)</li>
+                        <li>Zonal level Winners in Western Instrumental (8 colleges)</li>
+                        <li>Zonal level Winners in Western Solo Song (8 colleges)</li>
+                        <li>Zonal level runners up in Western Group Song (8 colleges)</li>
+                    </ul>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Quiz Competitions</h3>
+                    <ul>
+                        <li>Runners up in Bollywood Quiz organized by ILSAAS</li>
+                        <li>Competed against 180+ participants from 10+ colleges</li>
+                        <li>Demonstrated broad knowledge and competitive spirit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="content-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>Connect with me professionally</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🔗 LinkedIn</h3>
+                    <p>Professional networking</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📱 Phone</h3>
+                    <p>Available for discussions</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Mumbai, Maharashtra</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add hover effects to cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.achievement-card, .timeline-content, .project-card, .contact-item');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+
+        // Smooth scrolling animation for section changes
+        function smoothScrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click event to nav tabs for smooth scrolling
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', smoothScrollToTop);
+        });
+    </script>
+</body>
+</html>
